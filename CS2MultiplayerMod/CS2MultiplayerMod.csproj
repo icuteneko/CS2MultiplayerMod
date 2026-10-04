@@ -152,7 +152,13 @@
     <!--Build the UI module after the C# build. Must run after Mod.targets' DeployWIP
     (which wipes and refills the local mods folder) because webpack writes the compiled
     UI straight into that folder; same-event targets run in definition order, and this
-    file imports Mod.targets above, so the ordering holds.-->
+    file imports Mod.targets above, so the ordering holds.
+    When target a build session, you must ensure npm install alive
+      Prerequisite:
+    UI/node_modules must be present (i.e. `npm install` must have been run at least once).
+    Mmake sure npm install and CS2UIsdk is alive before
+    starting a build session.
+    -->
     <Target Name="BuildUI" AfterTargets="DeployWIP" Condition="'$(NeedBuild)'=='true'">
         <Exec Command="npm run build" WorkingDirectory="$(ProjectDir)UI"/>
     </Target>
