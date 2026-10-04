@@ -16,7 +16,7 @@ namespace CS2MultiplayerMod.Core.Session
     public sealed partial class MultiplayerSession
     {
         private const int HeartbeatIntervalMs = 2000;
-        private const int PeerTimeoutMs = 10000;
+        private const int PeerTimeoutMs = 120000;
         private const int HandshakeTimeoutMs = 10000;
 
         /// <summary>A join awaiting the host's manual approval is auto-declined after this
